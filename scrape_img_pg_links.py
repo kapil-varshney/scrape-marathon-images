@@ -71,12 +71,13 @@ for tag in link_tags:
 dir_name = 'img_pg_links'
 if not os.path.exists(dir_name):
     try:
-        os.mkdir(path)
+        os.mkdir(dir_name)
     except OSError:
-        print ("Creation of the directory {} failed".format(os.path.abspath(dir_path)))
+        print ("[INFO] Creation of the directory {} failed".format(os.path.abspath(dir_name)))
     else:
-        print ("Successfully created the directory {} ".format(os.path.abspath(dir_path)))
+        print ("[INFO] Successfully created the directory {} ".format(os.path.abspath(dir_name)))
 
 # Write the links to the image pages to a file
 f = open("{}/{}.csv".format(dir_name, album_name),'w')
 f.write(",\n".join(hrefs))
+print ("[INFO] Successfully created the file {}.csv with {} links".format(album_name, len(hrefs)))
